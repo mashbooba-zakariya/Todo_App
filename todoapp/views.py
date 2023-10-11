@@ -14,6 +14,7 @@ def index2(request):
 
 def create(request):
     form = todoForm()
+    print(form)
     if request.method == 'POST':
         data = todoForm(request.POST)
         if data.is_valid():
