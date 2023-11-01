@@ -13,31 +13,16 @@
             <strong class="card-title"> TODO LISTS</strong>
         </div>
         <br>
-<!--        <div class="row">-->
-<!--            <div class="col-lg-6 "></div>-->
-<!--            <div class="col-lg-6">-->
-<!--                <form method="get" class="form-inline " style="float:right;">-->
-<!--                    <div class="md-form my-0">-->
-<!--                        {{scheduleFilter.form }}-->
-<!--                        <button class="btn btn-primary mr-2" type="submit">Search</button>-->
-<!--                    </div>-->
-<!--                </form>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <br>-->
+
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th scope="col">SL NO</th>
                     <th scope="col">TITLE</th>
-
+                    <th scope="col">DATE</th>
                     <th scope="col">UPDATE</th>
                     <th scope="col">DELETE</th>
-
-
-<!--                    <th scope="col">Update</th>-->
-<!--                    <th scope="col">DELETE</th>-->
 
                 </tr>
                 </thead>
@@ -49,19 +34,19 @@
                     <th scope="row">{{forloop.counter}}</th>
                     <td>{{n.title}}</td>
 
-<!--                    <td>{{n.start_time}}</td>-->
-<!--                    <td>{{n.end_time}}</td>-->
+                    <td>{{n.date}}</td>
+
                     <td>
-                        <a href="#">
+                        <a href="{% url 'update' n.id %}">
                             <button type="button" class="btn btn-primary">Update</button>
                         </a>
                     </td>
 
                     <td>
-                        <form action="{% url 'delete' n.id %}" method="post" style="display: inline;"
+                        <form action="{% url 'delete' n.pk %}" method="post" style="display: inline;"
                               onsubmit="window.mytest()">
                             {% csrf_token %}
-<!--                            <input type="hidden" value="{{ n.id }}"/>-->
+
                             <button type="submit" class="btn btn-danger waves-effect width-md waves-light">Delete
                             </button>
                         </form>
@@ -86,3 +71,4 @@ window.mytest = function()
 { var isValid = confirm('Are you sure Want to Delete ?');if (!isValid) { event.preventDefault();
   }}
 
+</script>
